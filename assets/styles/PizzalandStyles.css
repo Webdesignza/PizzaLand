@@ -1,0 +1,11 @@
+
+.pizzaImg{
+    height:300px;
+    width: auto;
+}
+.userMsgCritical{
+    color:red;
+}
+.userMsgSuccess{
+    color:green;
+}
