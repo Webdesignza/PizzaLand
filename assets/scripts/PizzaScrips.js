@@ -1,20 +1,37 @@
 
-function addToOrder(name,cost){
+function showOrderForm(name, price)
+{   
+    document.getElementById("pizzaOrdered").value = name;
+    document.getElementById("priceOrdered").value = price;
 
+    document.getElementById("orderForm").style.display = "block";
+}
+
+function addToOrder(quantity){
+    
     let arPizzaOrder = [];
+    let name = "";
+    let price = 0;
+
+    if(isNaN(quantity) || quantity == ""){        
+        document.getElementById("orderMsg").innerHTML = "Please enter a number.";
+        return;
+    }
+
+    name = document.getElementById("pizzaOrdered").value;
+    price = document.getElementById("priceOrdered").value;
     
     if(sessionStorage.getItem("pizzaOrder") != null){      
         arPizzaOrder = JSON.parse(sessionStorage.getItem("pizzaOrder"));
     }
     
-    let arPizza = [name,cost];
+    let arPizza = [name,price,quantity];
     arPizzaOrder.push(arPizza);    
     
-    alert("You've ordered a " + name + " and your total billed is at " + cost + "Ft");
-
     sessionStorage.setItem("pizzaOrder",JSON.stringify(arPizzaOrder)); 
     
-    alert(sessionStorage.getItem("pizzaOrder"));
+
+
 }
 
 function buildBasket()
@@ -97,4 +114,9 @@ function displayUserMessage(element,message,isCrital){
             element.className = "userMsgSuccess";
         }
 }
+
+function basketAnimate(){
+        
+}
+
 
