@@ -10,7 +10,7 @@
   <meta name="description" content="">
   
   
-  <title>Home</title>
+  <title>Pizza Land</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
@@ -35,7 +35,7 @@
 		<div class="container">
 			<div class="navbar-brand">
 				
-				<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="https://mobiri.se">Mobirise</a></span>
+				<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="https://mobiri.se">Pizza Land</a></span>
 			</div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<div class="hamburger">
@@ -161,12 +161,12 @@
                   <br>
                   <tag id="orderMsg" class="userMsgCritical"></tag>
                   <br>
-                  <div class="mbr-section-btn item-footer"><a onclick="addToOrder(document.getElementById('quantity').value);" class="btn item-btn btn-primary display-7">Place Order</a></div>
+                  <div class="mbr-section-btn item-footer"><a onclick="addToOrder(document.getElementById('quantity').value);" class="btn item-btn btn-primary display-7" id="btnOrder">Place Order</a></div>
                 </div>              
             </div>
         </div>
     </form>
-    <img src="assets/images/shopping-cart.png" class="basket">
+    <img src="assets/images/shopping-cart.png" class="basket" id="imgBasket" style="display:none;">
     <label id="pizzaOrdered" style="display:none;"></label>
     <label id="priceOrdered" style="display:none;"></label>
 </section>

@@ -30,7 +30,9 @@ function addToOrder(quantity){
     
     sessionStorage.setItem("pizzaOrder",JSON.stringify(arPizzaOrder)); 
     
+    basketAnimate();
 
+    document.getElementById("orderForm").style.display = "none";
 
 }
 
@@ -116,7 +118,51 @@ function displayUserMessage(element,message,isCrital){
 }
 
 function basketAnimate(){
+    let imgBasket = document.getElementById("imgBasket");
+    let btnOrder = document.getElementById("btnOrder");
+    let tmrStart = Date.now();
+    let blnDone = false;
+    let x = 150;
+    let y = -500;
+    let h = 150;
+
+    imgBasket.style.display = "block";
+    imgBasket.style.position = "absolute";
+    imgBasket.style.left = x + "px";
+    imgBasket.style.top =  y + "px";
+    imgBasket.style.height = h + "px";
+    imgBasket.style.width = "auto";
+
+    while(!blnDone){
+
+        // Timer 
+        while(Date.now() - tmrStart  < 1000)
+        {
+            let x = 0;
+        }
+
+        // Reset timer
+        tmrStart = Date.now();
         
+        x += 50;
+        y -= 50;
+        h -= 2;
+
+        imgBasket.style.left = x + "px";
+        imgBasket.style.top =  y + "px";
+        imgBasket.style.height = h + "px";
+        imgBasket.style.width = "auto";
+
+        if (x > 1000)
+        {
+            blnDone = true;
+        }
+
+    }
+
+    alert("freee");
+
+
 }
 
 
