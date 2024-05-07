@@ -1,4 +1,12 @@
 
+let imgBasket = document.getElementById("imgBasket");
+let btnOrder = document.getElementById("btnOrder");
+let tmrStart = Date.now();
+//let blnDone = false;
+let x = 150;
+let y = -500;
+let h = 150;
+
 function showOrderForm(name, price)
 {   
     document.getElementById("pizzaOrdered").value = name;
@@ -30,6 +38,10 @@ function addToOrder(quantity){
     
     sessionStorage.setItem("pizzaOrder",JSON.stringify(arPizzaOrder)); 
     
+    x = 150;
+    y = -500;
+    h = 150;
+
     basketAnimate();
 
     document.getElementById("orderForm").style.display = "none";
@@ -118,51 +130,43 @@ function displayUserMessage(element,message,isCrital){
 }
 
 function basketAnimate(){
-    let imgBasket = document.getElementById("imgBasket");
-    let btnOrder = document.getElementById("btnOrder");
-    let tmrStart = Date.now();
-    let blnDone = false;
-    let x = 150;
-    let y = -500;
-    let h = 150;
 
-    imgBasket.style.display = "block";
-    imgBasket.style.position = "absolute";
+    imgBasket.style.display = "inline-block";
+    imgBasket.style.position = "relative";
     imgBasket.style.left = x + "px";
     imgBasket.style.top =  y + "px";
     imgBasket.style.height = h + "px";
     imgBasket.style.width = "auto";
 
-    while(!blnDone){
-
+    
         // Timer 
-        while(Date.now() - tmrStart  < 1000)
+        while(Date.now() - tmrStart  < 50)
         {
-            let x = 0;
+            let t = 0;
         }
 
         // Reset timer
         tmrStart = Date.now();
         
-        x += 50;
-        y -= 50;
-        h -= 2;
+        x += 100;
+        y -= 27;
+        h -= 12;
 
         imgBasket.style.left = x + "px";
         imgBasket.style.top =  y + "px";
         imgBasket.style.height = h + "px";
         imgBasket.style.width = "auto";
 
-        if (x > 1000)
+        if (x < 1300)
         {
-            blnDone = true;
+            requestAnimationFrame(basketAnimate);
         }
+       
+    
+
+   
+
 
     }
-
-    alert("freee");
-
-
-}
 
 

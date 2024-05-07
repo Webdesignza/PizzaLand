@@ -24,13 +24,13 @@
 }
   
   .basket {
-    position: absolute;
+    position: relative;
     top: 80px;
     right: 80px;
     width: 50px;
     height: auto;
     border: 1px solid #73AD21;
-    z-index: 50;
+    z-index: 10;
   }
 
   .mnuBasket {
