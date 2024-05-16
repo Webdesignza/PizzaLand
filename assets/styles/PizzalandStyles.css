@@ -1,4 +1,14 @@
 
+table{
+  text-align: center;
+  width:50%;
+  background-color: #ddd;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
 .pizzaImg{
     height:300px;
     width: auto;

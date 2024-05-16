@@ -2,7 +2,6 @@
 let imgBasket = document.getElementById("imgBasket");
 let btnOrder = document.getElementById("btnOrder");
 let tmrStart = Date.now();
-//let blnDone = false;
 let x = 150;
 let y = -500;
 let h = 150;
@@ -33,9 +32,13 @@ function addToOrder(quantity){
         arPizzaOrder = JSON.parse(sessionStorage.getItem("pizzaOrder"));
     }
     
-    let arPizza = [name,price,quantity];
-    arPizzaOrder.push(arPizza);    
-    
+    let clsPizza = new clsBasketItem();
+
+    clsPizza.name = name;
+    clsPizza.price = price;
+    clsPizza.quantity = quantity;
+
+    arPizzaOrder.push(clsPizza);    
     sessionStorage.setItem("pizzaOrder",JSON.stringify(arPizzaOrder)); 
     
     x = 150;
@@ -50,15 +53,16 @@ function addToOrder(quantity){
 
 function buildBasket()
 {
-    let arPizzaOrder = [];
+    let arPizzaOrder = [new clsBasketItem()];
     let arBasket = [];
     let intExistIndex = -1;
     let numTotal = 0;
        
     // Check that the session is empty. if not retrieve basket from session
     if(sessionStorage.getItem("pizzaOrder") != null){              
-        arPizzaOrder = JSON.parse(sessionStorage.getItem("pizzaOrder"));
-    }
+        arPizzaOrder = JSON.parse(sessionStorage.getItem("pizzaOrder"));  
+        
+    }   
     else{
         // If basket is empty, let the user know
         displayUserMessage(document.getElementById("userMsg")
@@ -69,8 +73,9 @@ function buildBasket()
 
     // loop through the name array to add to the basket
     for(let i = 0; i < arPizzaOrder.length;i++ ){
-
-        let arPizza = arPizzaOrder[i]; 
+        
+        let arPizza;
+        arPizza =  arPizzaOrder[i]; 
         intExistIndex = -1;
         
         // Check if the basket already has some stuff
@@ -79,7 +84,7 @@ function buildBasket()
             for(let ii = 0; ii < arBasket.length;ii++){
                                 
                 // Check if the pizza already exists inside the basket
-                if(arPizza[0] == arBasket[ii][0] ){                    
+                if(arPizza.pizzaName == arBasket[ii].pizzaName) {                    
                     intExistIndex = ii;                                                         
                 }
             }
@@ -87,36 +92,36 @@ function buildBasket()
             // If the entry exists update the existing one,
             if(intExistIndex > -1)
             {
-                arBasket[intExistIndex][1]++;
+                arBasket[intExistIndex].pizzaQuantity++;
             }
             else
             {
                 // If it doesn't exist simply add it
-                arBasket.push([arPizza[0],1,arPizza[1]]);                    
+                arBasket.push(arPizza);                                    
             }
         }
         else
         {            
             // Add the first entry of unique pizza to the basket
-            arBasket.push([arPizza[0],1,arPizza[1]]);            
+            arBasket.push(arPizza);            
         }
 
     }
 
     let table = document.getElementById("basket");
 
-    table.innerHTML += "<tr> <td>Ordered</td>  <td></td> <td>Quantity</td>     <td></td>     <td>Price</td> </tr>";     
+    table.innerHTML += "<tr> <td><b>Ordered</b></td>  <td></td> <td><b>Quantity</b></td>     <td></td>     <td><b>Price</b></td> </tr>";     
 
     // Work out the total price
     arBasket.forEach(elPizza => {
-        numTotal += (elPizza[1] * elPizza[2]);
+        numTotal += (elPizza.pizzaPrice * elPizza.pizzaQuantity);
         
-       table.innerHTML += "<tr> <td>" + elPizza[0] + "</td> <td></td> <td>" + elPizza[1] + "</td> <td></td> <td>" + elPizza[2] + "</td> </tr>"
+       table.innerHTML += "<tr> <td>" + elPizza.pizzaName + "</td> <td></td> <td>" + elPizza.pizzaQuantity + "</td> <td></td> <td>" + elPizza.pizzaPrice + "</td> </tr>"
 
     });
 
     table.innerHTML += "<tr> <td>Total</td> <td></td> <td></td> <td></td><td><tag >" + numTotal +"</tag></td> </tr>";
-
+    
 }
 
 function displayUserMessage(element,message,isCrital){
@@ -127,6 +132,7 @@ function displayUserMessage(element,message,isCrital){
         else{
             element.className = "userMsgSuccess";
         }
+        
 }
 
 function basketAnimate(){
@@ -140,7 +146,7 @@ function basketAnimate(){
 
     
         // Timer 
-        while(Date.now() - tmrStart  < 50)
+        while(Date.now() - tmrStart  < 75)
         {
             let t = 0;
         }
@@ -161,12 +167,40 @@ function basketAnimate(){
         {
             requestAnimationFrame(basketAnimate);
         }
-       
+           
+    }
+
+class clsBasketItem{
     
-
-   
-
+    constructor(){
 
     }
 
+    get name(){ 
+        return this.pizzaName;
+    }
+
+    set name(prmName){
+        this.pizzaName = prmName;
+    }
+
+    get price(){
+        return this.pizzaPrice;
+    }
+
+    set price(prmPrice){
+        this.pizzaPrice = prmPrice;
+    }
+
+    get quantity(){
+        return this.pizzaQuantity;
+    }
+
+    set quantity(prmQuantity ){
+        this.pizzaQuantity = prmQuantity;
+    }
+
+    
+
+}
 
