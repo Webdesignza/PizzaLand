@@ -39,6 +39,7 @@ function addToOrder(quantity){
     clsPizza.quantity = quantity;
 
     arPizzaOrder.push(clsPizza);    
+
     sessionStorage.setItem("pizzaOrder",JSON.stringify(arPizzaOrder)); 
     
     x = 150;
@@ -120,7 +121,7 @@ function buildBasket()
 
     });
 
-    table.innerHTML += "<tr> <td>Total</td> <td></td> <td></td> <td></td><td><tag >" + numTotal +"</tag></td> </tr>";
+    table.innerHTML += "<tr> <td><b>Total</b></td> <td></td> <td></td> <td></td><td><tag ><b>" + numTotal +"</tag></b></td> </tr>";
     
 }
 
