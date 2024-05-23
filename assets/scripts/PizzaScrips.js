@@ -14,8 +14,7 @@ function showOrderForm(name, price)
     document.getElementById("orderForm").style.display = "block";
 }
 
-function addToOrder(quantity){
-    
+function addToOrder(quantity){       
     let arPizzaOrder = [];
     let name = "";
     let price = 0;
@@ -49,7 +48,7 @@ function addToOrder(quantity){
     basketAnimate();
 
     document.getElementById("orderForm").style.display = "none";
-
+   
 }
 
 function basketAnimate(){
@@ -117,7 +116,13 @@ class clsBasketItem{
         this.pizzaQuantity = prmQuantity;
     }
 
-    
+    get total(){
+        return this.pizzaTotal;
+    }
+
+    set total(prmTotal ){
+        this.pizzaTotal = prmTotal;
+    }
 
 }
 

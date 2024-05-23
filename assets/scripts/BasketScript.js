@@ -45,14 +45,15 @@ function buildBasket()
                                 
                 // Check if the pizza already exists inside the basket
                 if(arPizza.pizzaName == arBasket[ii].pizzaName) {                    
-                    intExistIndex = ii;                                                         
+                    intExistIndex = ii;    
+
                 }
             }
 
             // If the entry exists update the existing one,
             if(intExistIndex > -1)
             {
-                arBasket[intExistIndex].pizzaQuantity++;
+                arBasket[intExistIndex].pizzaQuantity++;                
             }
             else
             {
@@ -66,21 +67,23 @@ function buildBasket()
             arBasket.push(arPizza);            
         }
 
+        arBasket[i].pizzaTotal = arBasket[i].pizzaQuantity * arBasket[i].pizzaPrice;
+
     }
 
     let table = document.getElementById("basket");
     
-    table.innerHTML = "<tr> <td><b>Ordered</b></td>  <td></td> <td><b>Quantity</b></td>     <td></td>     <td><b>Price</b></td> <td></td> </tr>";     
+    table.innerHTML = "<tr> <td><b>Ordered</b></td>  <td></td> <td><b>Quantity</b></td>     <td></td>     <td><b>Price</b></td> <td><b>Total</b></td> <td></td> </tr>";     
 
     // Work out the total price
     arBasket.forEach(elPizza => {
         numTotal += (elPizza.pizzaPrice * elPizza.pizzaQuantity);
         
-       table.innerHTML += "<tr> <td>" + elPizza.pizzaName + "</td> <td></td> <td><input type='textbox' value='" + elPizza.pizzaQuantity + "' class='qtyBasketItem' id='" + elPizza.pizzaName + "'></td> <td></td> <td>" + elPizza.pizzaPrice + "</td> <td><input type='button' value='delete' onclick='removeBasketItem(\"" + elPizza.pizzaName + "\");'></td></tr>";
+       table.innerHTML += "<tr> <td>" + elPizza.pizzaName + "</td> <td></td> <td><input type='textbox' value='" + elPizza.pizzaQuantity + "' class='qtyBasketItem' id='" + elPizza.pizzaName + "'></td> <td></td> <td>" + elPizza.pizzaPrice + "</td>  <td>" + elPizza.pizzaTotal + "</td> <td><input type='button' value='delete' onclick='removeBasketItem(\"" + elPizza.pizzaName + "\");'></td></tr>";
 
     });
 
-    table.innerHTML += "<tr> <td><b>Total</b></td> <td></td> <td></td> <td></td><td><tag ><b>" + numTotal +"</tag></b></td> <td></td> </tr>";
+    table.innerHTML += "<tr> <td><b>Total</b></td> <td></td> <td></td> <td></td><td></td><td><tag ><b>" + numTotal +"</tag></b></td> <td></td> </tr>";
 
     if(arPizzaOrder.length < 1)
     {
