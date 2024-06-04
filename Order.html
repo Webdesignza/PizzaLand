@@ -67,48 +67,59 @@
                 <div class="mbr-section-head mb-5">
                     <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
                         <br><br><br>
-                        <strong>Contacts</strong>
+                        <strong>Order Form</strong>
                     </h3>
                     
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="wwzX8+opfg7aEDg6r+qtZP2WcEp8rUIuTrsDU1OjwoAedcYAymLpwcxd1Bimbdxap0GwNBBv2dkR+Yqi9ATfczCNLTz9GSTfWgu6rKkPV8kqXyFJF9T/ANDXd0D/tDl7">
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                            Oops...! some problem!
-                        </div>
+        <table>
+            <tr>
+                <td style="width:50%;">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid" style="flex:50%;">
+                            <form action="" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true">
+                                <div class="row">
+                                    <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                                    <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                                        Oops...! some problem!
+                                    </div>
+                                </div>
+                                <div class="dragArea row">
+                                    <div class="col-md col-sm-12 form-group mb-3" data-for="name">
+                                        <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name">
+                                    </div>
+                                    <div class="col-md col-sm-12 form-group mb-3" data-for="email">
+                                        <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email">
+                                    </div>
+                                    <div class="col-12 form-group mb-3" data-for="phone">
+                                        <input type="tel" name="phone" placeholder="Phone" data-form-field="phone" class="form-control" value="" id="phone">
+                                    </div>
+                                    <div class="col-12 form-group mb-3" data-for="textarea">
+                                        <textarea name="textarea" placeholder="Address" data-form-field="textarea" class="form-control" id="address"></textarea>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
+                                        <button type="submit" class="btn btn-primary display-7" onclick='return validateForm();'>Order Now</button>
+                                        <br><br><br>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>            
                     </div>
-                    <div class="dragArea row">
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name">
-                        </div>
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="email">
-                            <input type="email" name="email" placeholder="E-mail" data-form-field="email" class="form-control" value="" id="email">
-                        </div>
-                        <div class="col-12 form-group mb-3" data-for="phone">
-                            <input type="tel" name="phone" placeholder="Phone" data-form-field="phone" class="form-control" value="" id="phone">
-                        </div>
-                        <div class="col-12 form-group mb-3" data-for="textarea">
-                            <textarea name="textarea" placeholder="Address" data-form-field="textarea" class="form-control" id="textarea"></textarea>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
-                            <button type="submit" class="btn btn-primary display-7">Send message</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+                </td>         
+                <td style="width:10%;"></td>   
+                <td>
+                    <p id="userMsg"></p>
+                   <table id="basket">
+                        
+                   </table>
+                </td>
+            </tr>
+        </table>
     </div>
 </section>
 
 <section data-bs-version="5.1" class="footer2 cid-uaZc95d5S8" once="footers" id="footer02-4">
-    
-
-    
     
 
     <div class="container">
@@ -130,7 +141,19 @@
             </div>
         </div>
     </div>
-</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/3020820" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1" href="https://mobirise.com/offline-website-builder.html">Offline Website Builder</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>  
+</section>
+
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  
+<script src="assets/smoothscroll/smooth-scroll.js"></script>  
+<script src="assets/ytplayer/index.js"></script>  
+<script src="assets/dropdown/js/navbar-dropdown.js"></script>  
+<script src="assets/theme/js/script.js"></script>  
+<script src="assets/scripts/OrderScript.js"></script>
+<script src="assets/scripts/PizzaScrips.js"></script>
+
+<script>
+     buildOrderSummary();
+</script>
   
   
 </body>
