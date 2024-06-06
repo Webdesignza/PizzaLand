@@ -90,8 +90,7 @@ function buildBasket()
         // If basket is empty, let the user know
         displayUserMessage(document.getElementById("userMsg")
         ,"Your Basket is currently empty",
-        true);
-    
+        true);    
     }
     
 }
